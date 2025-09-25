@@ -1,0 +1,7 @@
+PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
+
+SELECT ?count ?status WHERE {
+      tb:read_AE_CountPers tb:AEdp_hasCOUNTvalue ?count .
+      tb:act_AE_Lamp tb:M_hasActionStatus ?status .
+    }
+LIMIT 1

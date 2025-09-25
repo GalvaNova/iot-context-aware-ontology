@@ -1,0 +1,24 @@
+PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  tb:act_AS_Valve tb:M_hasActionStatus ?oldStatus .
+  tb:param_objek tb:ASdp_hasDISTOBJvalue ?oldObj .
+  tb:param_orang tb:ASdp_hasDISTPERvalue ?oldPer .
+}
+INSERT {
+  tb:param_objek a tb:parameter ;
+    tb:ASdp_hasDISTOBJvalue {jarak1}^^xsd:float ;
+    tb:M_hasAction tb:act_AS_Valve .
+
+  tb:param_orang a tb:parameter ;
+    tb:ASdp_hasDISTPERvalue {jarak2}^^xsd:float ;
+    tb:M_hasAction tb:act_AS_Valve .
+
+  tb:act_AS_Valve tb:M_hasActionStatus tb:{status} .
+}
+WHERE {
+  OPTIONAL { tb:act_AS_Valve tb:M_hasActionStatus ?oldStatus . }
+  OPTIONAL { tb:param_objek tb:ASdp_hasDISTOBJvalue ?oldObj . }
+  OPTIONAL { tb:param_orang tb:ASdp_hasDISTPERvalue ?oldPer . }
+}

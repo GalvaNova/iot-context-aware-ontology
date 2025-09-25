@@ -1,0 +1,18 @@
+PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+      tb:act_AE_Lamp tb:M_hasActionStatus ?old .
+      tb:read_AE_CountPers tb:AEdp_hasCOUNTvalue ?oldCount .
+    }
+INSERT {
+      tb:read_AE_CountPers a tb:parameter ;
+        tb:AEdp_hasCOUNTvalue "{{PERSON_COUNT}}"^^xsd:integer ;
+        tb:M_hasAction tb:act_AE_Lamp .
+
+      tb:act_AE_Lamp tb:M_hasActionStatus tb:${{LAMP_STATUS}} .
+    }
+WHERE {
+      OPTIONAL { tb:act_AE_Lamp tb:M_hasActionStatus ?old . }
+      OPTIONAL { tb:read_AE_CountPers tb:AEdp_hasCOUNTvalue ?oldCount . }
+    }

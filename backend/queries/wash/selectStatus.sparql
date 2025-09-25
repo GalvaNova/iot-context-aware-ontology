@@ -1,0 +1,8 @@
+PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
+
+SELECT ?dist1 ?dist2 ?status WHERE {
+  OPTIONAL { tb:param_objek tb:ASdp_hasDISTOBJvalue ?dist1 . }
+  OPTIONAL { tb:param_orang tb:ASdp_hasDISTPERvalue ?dist2 . }
+  OPTIONAL { tb:act_AS_Valve tb:M_hasActionStatus ?status . }
+}
+LIMIT 1

@@ -1,0 +1,38 @@
+PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  tb:act_AC_Buzzer tb:M_hasActionStatus ?oldAC_Buzzer .
+  tb:act_AC_Exhaust tb:M_hasActionStatus ?oldAC_Exhaust .
+}
+
+INSERT {
+  tb:read_AC_Dist a tb:parameter ;
+  tb:ACdp_hasDISTvalue "{{DIST}}"^^xsd:float ;
+  tb:M_hasAction tb:act_AC_Buzzer .
+  
+  tb:read_AC_flame a tb:parameter ;
+  tb:ACdp_hasFIREvalue "{{FLAME}}"^^xsd:float ;
+  tb:M_hasAction tb:act_AC_Buzzer .
+  
+  tb:read_AC_Ppm a tb:parameter ;
+  tb:ACdp_hasPPMvalue "{{PPM}}"^^xsd:float ;
+  tb:M_hasAction tb:act_AC_Buzzer .
+  
+  tb:read_AC_Temp a tb:parameter ;
+  tb:ACdp_hasTEMPvalue "{{TEMP}}"^^xsd:float ;
+  tb:M_hasAction tb:act_AC_Exhaust .
+  
+  tb:act_AC_Buzzer tb:M_hasActionStatus tb:{{BUZZER_STATUS}} .
+  tb:act_AC_Exhaust tb:M_hasActionStatus tb:{{FAN_STATUS}} .
+}
+
+WHERE {
+  OPTIONAL { tb:act_AC_Buzzer tb:M_hasActionStatus ?oldBuz . }
+  OPTIONAL { tb:act_AC_Exhaust tb:M_hasActionStatus ?oldAC_Exhaust . }
+  OPTIONAL { tb:read_AC_Temp tb:ACdp_hasTEMPvalue ?oldTemp . }
+  OPTIONAL { tb:read_AC_flame tb:ACdp_hasFIREvalue ?oldFlame . }
+  OPTIONAL { tb:read_AC_Dist tb:ACdp_hasDISTvalue ?oldDist . }
+  OPTIONAL { tb:read_AC_Ppm tb:ACdp_hasPPMvalue ?oldPPM . }
+}
+

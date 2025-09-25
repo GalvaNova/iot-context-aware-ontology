@@ -1,0 +1,16 @@
+.card + .card {
+  margin-top: 20px;
+}
+
+.status-box {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.conn-status {
+  font-weight: bold;
+}
+
+.toast {
+  z-index: 10000;
+}

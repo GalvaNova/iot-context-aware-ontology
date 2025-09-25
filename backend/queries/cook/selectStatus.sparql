@@ -1,0 +1,11 @@
+PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
+
+SELECT ?dist ?flame ?gas ?temp ?buz ?fan WHERE {
+      tb:read_AC_Dist tb:ACdp_hasDISTvalue ?dist .
+      tb:read_AC_flame tb:ACdp_hasFIREvalue ?flame .
+      tb:read_AC_Ppm tb:ACdp_PPMvalue ?gas .
+      tb:read_AC_Temp tb:ACdp_hasTEMPvalue ?temp .
+      tb:act_AC_Buzzer tb:M_hasActionStatus ?buz .
+      tb:act_AC_Exhaust tb:M_hasActionStatus ?fan .
+    }
+    LIMIT 1
