@@ -1,0 +1,59 @@
+Rule Buzzer-1 :  Gas Bocor → Buzzer ON
+
+ACdp_hasPPMvalue(?rgas, ?ppm) ^ swrlb:greaterThan(?ppm, 700) ^ M_hasAction(?buzz, act_AC_Buzzer) -> M_hasActionStatus(act_AC_Buzzer, st_actON)
+
+Rule Buzzer-2 : Api Ada + Orang Jauh → Buzzer ON
+
+ACdp_hasFIREvalue(?rflame, ?flame) ^ swrlb:equal(?flame, 0) ^ ACdp_hasDISTvalue(?rsuls, ?dist) ^ swrlb:greaterThan(?dist, 10) ^ M_hasAction(?buzz, act_AC_Buzzer) ^ M_hasActivity(?a, fnc_cookAct) -> M_hasActionStatus(act_AC_Buzzer, st_actON) ^ M_hasActivityStatus(fnc_cookAct, st_cookYES)
+
+Rule Cooking 1 : Cooking YES (Ada Api + Orang Dekat)
+
+ACdp_hasFIREvalue(?rflame, ?flame) ^ swrlb:equal(?flame, 0) ^ ACdp_hasDISTvalue(?rsuls, ?dist) ^ swrlb:lessThan(?dist, 10) ^ M_hasActivity(?a, fnc_cookAct) -> M_hasActivityStatus(fnc_cookAct, st_cookYES)
+
+Rule Cooking2 : Cooking NO (Tidak Ada Api)
+
+ACdp_hasFIREvalue(?rflame, ?flame) ^ swrlb:equal(?flame, 1) ^ M_hasActivity(?a, fnc_cookAct) -> M_hasActivityStatus(fnc_cookAct, st_cookNO)
+
+Rule Exhaust-1 : Api Menyala → Exhaust ON
+
+ACdp_hasFIREvalue(?rflame, ?flame) ^ swrlb:equal(?flame, 0) ^ M_hasAction(?exhaust, act_AC_Exhaust) -> M_hasActionStatus(act_AC_Exhaust, st_actON)
+
+Rule Exhaust-2 : Api Mati + Suhu Tinggi → Exhaust ON
+
+ACdp_hasFIREvalue(?rflame, ?flame) ^ swrlb:equal(?flame, 1) ^ ACdp_hasTEMPvalue(?rtemp, ?temp) ^ swrlb:greaterThan(?temp, 35) ^ M_hasAction(?exhaust, act_AC_Exhaust) -> M_hasActionStatus(act_AC_Exhaust, st_actON)
+
+Rule Exhaust-3 : Api Mati + Suhu Normal → Exhaust OFF
+
+ACdp_hasFIREvalue(?rflame, ?flame) ^ swrlb:equal(?flame, 1) ^ ACdp_hasTEMPvalue(?rtemp, ?temp) ^ swrlb:lessThanOrEqual(?temp, 35) ^ M_hasAction(?exhaust, act_AC_Exhaust) -> M_hasActionStatus(act_AC_Exhaust, st_actOFF)
+
+Rule Lamp-1 : Lamp ON (Ada Orang di Dapur)
+
+AEdp_hasCOUNTvalue(?pers, ?counting) ^ swrlb:greaterThan(?counting, 0) ^ M_hasAction(?lamp, act_AE_Lamp) -> M_hasActionStatus(act_AE_Lamp, st_actON)
+
+Rule Lamp-2 : Lamp OFF (Tidak Ada Orang & Tidak Ada Aktivitas)
+
+AEdp_hasCOUNTvalue(?pers, ?counting) ^ swrlb:equal(?counting, 0) ^ M_hasActivityStatus(fnc_cookAct, st_cookNO) ^ M_hasActivityStatus(fnc_washAct, st_washNO) ^ M_hasAction(?lamp, act_AE_Lamp) -> M_hasActionStatus(act_AE_Lamp, st_actOFF)
+
+Rule Valve-1 : Valve ON (Orang + Objek di Sink)
+
+M_hasActivityStatus(fnc_washAct, st_washYES) ^ M_hasAction(?valve, act_AS_Valve) -> M_hasActionStatus(act_AS_Valve, st_actON)
+
+Rule Valve-2 : Valve OFF (Tidak Ada Aktivitas Wash)
+
+M_hasActivityStatus(fnc_washAct, st_washNO) ^ M_hasAction(?valve, act_AS_Valve) -> M_hasActionStatus(act_AS_Valve, st_actOFF)
+
+Rule Wash-1 : Washing YES
+
+ASdp_hasDISTOBJvalue(?robj, ?obj) ^ ASdp_hasDISTPERSvalue(?rpers, ?pers) ^ swrlb:lessThan(?obj, 20) ^ swrlb:lessThan(?pers, 20) ^ M_hasActivity(?a, fnc_washAct) -> M_hasActivityStatus(fnc_washAct, st_washYES)
+
+Rule Wash-2 : Washing NO
+
+ASdp_hasDISTOBJvalue(?robj, ?obj) ^ ASdp_hasDISTPERSvalue(?rpers, ?pers) ^ swrlb:greaterThan(?obj, 20) ^ swrlb:greaterThan(?pers, 20) ^ M_hasActivity(?a, fnc_washAct) -> M_hasActivityStatus(fnc_washAct, st_washNO)
+
+Rule Wash-3 : Washing NO
+
+ASdp_hasDISTOBJvalue(?robj, ?obj) ^ ASdp_hasDISTPERSvalue(?rpers, ?pers) ^ swrlb:lessThan(?obj, 20) ^ swrlb:greaterThan(?pers, 20) ^ M_hasActivity(?a, fnc_washAct) -> M_hasActivityStatus(fnc_washAct, st_washNO)
+
+Rule Wash-4 : Washing NO
+
+ASdp_hasDISTOBJvalue(?robj, ?obj) ^ ASdp_hasDISTPERSvalue(?rpers, ?pers) ^ swrlb:greaterThan(?obj, 20) ^ swrlb:lessThan(?pers, 20) ^ M_hasActivity(?a, fnc_washAct) -> M_hasActivityStatus(fnc_washAct, st_washNO)

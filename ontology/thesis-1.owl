@@ -1,0 +1,2250 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/"
+     xml:base="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:thesis-1="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasDISTread -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasDISTread">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_ULS"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Dist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasFIREread -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasFIREread">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_Fire"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Flame"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasPPMread -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasPPMread">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_MQ-02"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Ppm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasTEMPread -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasTEMPread">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_DHT11"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Temp"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasTimer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasTimer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#CookingActivity"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#Timer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasTimerStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACop_hasTimerStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#Timer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#timerStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEop_hasPersonCount -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEop_hasPersonCount">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEs_PIR-EE"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AE_PersonCount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASop_hasULSobjRead -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASop_hasULSobjRead">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASs_ULS-OP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASop_hasULSpersonRead -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASop_hasULSpersonRead">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASs_ULS-OP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistPerson"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Dist"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Flame"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Ppm"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Temp"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AE_PersonCount"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Buzzer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Exhaust"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEa_Lamp"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASa_Valve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Buzzer"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Exhaust"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEa_Lamp"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASa_Valve"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuatorStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaCook"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaSink"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#CookingActivity"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#WashingActivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#CookingActivity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#WashingActivity"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#activityStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasSensor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasSensor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaCook"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaExitEntry"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaSink"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_DHT11"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_Fire"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_MQ-02"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_ULS"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEs_PIR-EE"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASs_ULS-OP"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasDISTvalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasDISTvalue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Dist"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Flame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasPPMvalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasPPMvalue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Ppm"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasTEMPvalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasTEMPvalue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Temp"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEdp_hasCOUNTvalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEdp_hasCOUNTvalue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AE_PersonCount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTOBJvalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTOBJvalue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTPERSvalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTPERSvalue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistPerson"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Dist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Dist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Flame -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Flame">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Ppm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Ppm">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Temp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Temp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Buzzer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Buzzer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Exhaust -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Exhaust">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_DHT11 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_DHT11">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_Fire -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_Fire">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_MQ-02 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_MQ-02">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_ULS -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_ULS">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AE_PersonCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AE_PersonCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEa_Lamp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEa_Lamp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEs_PIR-EE -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEs_PIR-EE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistPerson -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistPerson">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASa_Valve -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASa_Valve">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASs_ULS-OP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASs_ULS-OP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#CookingActivity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#CookingActivity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#Timer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#Timer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#WashingActivity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#WashingActivity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#activityStatus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#activityStatus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuator"/>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuatorStatus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuatorStatus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#area -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#area"/>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaCook -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaCook">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaExitEntry -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaExitEntry">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaSink -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaSink">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#function -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#function"/>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#parameter"/>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sensor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#status -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#status"/>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#timerStatus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#timerStatus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#status"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Buzzer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Buzzer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Buzzer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACa_Exhaust"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AE_Lamp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AE_Lamp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEa_Lamp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AS_Valve -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AS_Valve">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASa_Valve"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaCooking -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaCooking">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaCook"/>
+        <thesis-1:M_hasAction rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Buzzer"/>
+        <thesis-1:M_hasAction rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust"/>
+        <thesis-1:M_hasActivity rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+        <thesis-1:M_hasSensor rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_DHT11"/>
+        <thesis-1:M_hasSensor rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_Fire"/>
+        <thesis-1:M_hasSensor rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_MQ-02"/>
+        <thesis-1:M_hasSensor rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_ULS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaExitentry -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaExitentry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaExitEntry"/>
+        <thesis-1:M_hasAction rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AE_Lamp"/>
+        <thesis-1:M_hasSensor rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AE_PIR-EE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaSinkwash -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaSinkwash">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#areaSink"/>
+        <thesis-1:M_hasAction rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AS_Valve"/>
+        <thesis-1:M_hasActivity rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+        <thesis-1:M_hasSensor rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AS_ULS-Obj"/>
+        <thesis-1:M_hasSensor rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AS_ULS-Pers"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#CookingActivity"/>
+        <thesis-1:ACop_hasTimer rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_timing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_timing -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_timing">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#Timer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#WashingActivity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Dist -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Dist">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Dist"/>
+        <thesis-1:ACdp_hasDISTvalue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</thesis-1:ACdp_hasDISTvalue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Flame -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Flame">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Flame"/>
+        <thesis-1:ACdp_hasFIREvalue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</thesis-1:ACdp_hasFIREvalue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Ppm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Ppm">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Ppm"/>
+        <thesis-1:ACdp_hasPPMvalue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">700.0</thesis-1:ACdp_hasPPMvalue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Temp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Temp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AC_Temp"/>
+        <thesis-1:ACdp_hasTEMPvalue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</thesis-1:ACdp_hasTEMPvalue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AE_CountPers -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AE_CountPers">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AE_PersonCount"/>
+        <thesis-1:AEdp_hasCOUNTvalue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</thesis-1:AEdp_hasCOUNTvalue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AS_DistObject -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AS_DistObject">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistObject"/>
+        <thesis-1:ASdp_hasDISTOBJvalue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</thesis-1:ASdp_hasDISTOBJvalue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AS_DistPerson -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AS_DistPerson">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AS_DistPerson"/>
+        <thesis-1:ASdp_hasDISTPERSvalue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12.0</thesis-1:ASdp_hasDISTPERSvalue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_DHT11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_DHT11">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_DHT11"/>
+        <thesis-1:ACop_hasTEMPread rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Temp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_Fire -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_Fire">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_Fire"/>
+        <thesis-1:ACop_hasFIREread rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Flame"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_MQ-02 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_MQ-02">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_MQ-02"/>
+        <thesis-1:ACop_hasPPMread rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Ppm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_ULS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AC_ULS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACs_ULS"/>
+        <thesis-1:ACop_hasDISTread rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AC_Dist"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AE_PIR-EE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AE_PIR-EE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEs_PIR-EE"/>
+        <thesis-1:AEop_hasPersonCount rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AE_CountPers"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AS_ULS-Obj -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AS_ULS-Obj">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASs_ULS-OP"/>
+        <thesis-1:ASop_hasULSobjRead rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AS_DistObject"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AS_ULS-Pers -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#sens_AS_ULS-Pers">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASs_ULS-OP"/>
+        <thesis-1:ASop_hasULSpersonRead rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#read_AS_DistPerson"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actOFF -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actOFF">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuatorStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#actuatorStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookNO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookNO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#activityStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookYES -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookYES">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#activityStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_timerOFF -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_timerOFF">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#timerStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_timerON -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_timerON">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#timerStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washNO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washNO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#activityStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washYES -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washYES">
+        <rdf:type rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#activityStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rflame">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rsuls">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/dist">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/buzz">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rgas">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/ppm">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rtemp">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/temp">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/exhaust">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/counting">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/lamp">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/valve">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/robj">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rpers">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Api Ada + Orang Jauh → Buzzer ON</rdfs:comment>
+        <rdfs:label>Rule B2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rflame"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasDISTvalue"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rsuls"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/dist"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/dist"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/buzz"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Buzzer"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Buzzer"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookYES"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Valve OFF (Tidak Ada Aktivitas Wash)</rdfs:comment>
+        <rdfs:label>Rule V2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washNO"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/valve"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AS_Valve"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AS_Valve"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actOFF"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Valve ON (Orang + Objek di Sink)</rdfs:comment>
+        <rdfs:label>Rule V1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washYES"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/valve"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AS_Valve"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AS_Valve"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Cooking YES (Ada Api + Orang Dekat)</rdfs:comment>
+        <rdfs:label>Rule C1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rflame"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasDISTvalue"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rsuls"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/dist"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/dist"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookYES"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Cooking NO (Tidak Ada Api)</rdfs:comment>
+        <rdfs:label>Rule C2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rflame"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookNO"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Washing NO</rdfs:comment>
+        <rdfs:label>Rule W2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTOBJvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/robj"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTPERSvalue"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rpers"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washYES"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Washing NO</rdfs:comment>
+        <rdfs:label>Rule W4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTOBJvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/robj"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTPERSvalue"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rpers"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washYES"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Washing NO</rdfs:comment>
+        <rdfs:label>Rule W3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTOBJvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/robj"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTPERSvalue"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rpers"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washYES"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Washing YES</rdfs:comment>
+        <rdfs:label>Rule W1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTOBJvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/robj"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ASdp_hasDISTPERSvalue"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rpers"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/obj"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivity"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washYES"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Gas Bocor → Buzzer ON</rdfs:comment>
+        <rdfs:label>Rule B1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasPPMvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rgas"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/ppm"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/ppm"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">700</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/buzz"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Buzzer"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Buzzer"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Api Mati + Suhu Tinggi → Exhaust ON</rdfs:comment>
+        <rdfs:label>Rule E2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rflame"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasTEMPvalue"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rtemp"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/temp"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/temp"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/exhaust"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Api Mati + Suhu Normal → Exhaust OFF</rdfs:comment>
+        <rdfs:label>Rule E3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rflame"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasTEMPvalue"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rtemp"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/temp"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThanOrEqual"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/temp"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/exhaust"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actOFF"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Api Menyala → Exhaust ON</rdfs:comment>
+        <rdfs:label>Rule E1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#ACdp_hasFIREvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/rflame"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/flame"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/exhaust"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AC_Exhaust"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Lamp OFF (Tidak Ada Orang &amp; Tidak Ada Aktivitas)</rdfs:comment>
+        <rdfs:label>Rule L2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEdp_hasCOUNTvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/counting"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/counting"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_cookAct"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_cookNO"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActivityStatus"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#fnc_washAct"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_washNO"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/lamp"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AE_Lamp"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AE_Lamp"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actOFF"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Lamp ON (Ada Orang di Dapur)</rdfs:comment>
+        <rdfs:label>Rule L1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#AEdp_hasCOUNTvalue"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/pers"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/counting"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/counting"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasAction"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1/lamp"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AE_Lamp"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#M_hasActionStatus"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#act_AE_Lamp"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#st_actON"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
