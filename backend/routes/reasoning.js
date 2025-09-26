@@ -9,6 +9,9 @@ const DATASET = {
   wash: "areaWash-2",
   inout: "areaInout-2",
 };
+
+// const DATASET = "galva";
+
 const NS = "http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#";
 
 // 🔹 Helper untuk query Fuseki
@@ -130,6 +133,14 @@ async function runReasoning() {
       WHERE { OPTIONAL { tb:${u.action} tb:M_hasActionStatus ?old } }
     `;
     await updateFuseki(u.dataset, sparql);
+  }
+
+  try {
+    await axios.post("http://192.168.43.238:5000/api/wash/update-valve", {
+      status: valve === "st_actON" ? "ON" : "OFF",
+    });
+  } catch (err) {
+    console.error("Gagal sinkronkan valve ke backend:", err.message);
   }
 
   return { ...data, buzzer, exhaust, cooking, washing, lamp, valve };
