@@ -3,26 +3,40 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 
-// 🔹 Endpoint Fuseki (langsung, tanpa .env & config.js)
+// 🔹 Endpoint Fuseki
 const FUSEKI_UPDATE_WASH = "http://192.168.43.238:3030/areaWash-2/update";
 const FUSEKI_QUERY_WASH = "http://192.168.43.238:3030/areaWash-2/query";
 
 // 🔹 Variabel realtime
-let lastWashData = {};
+let lastWashData = {
+  jarak1: null,
+  jarak2: null,
+  timestamp: null,
+  reasoningTime: null,
+  fullResponseTime: null,
+  endToEndResponseTime: null,
+};
+
+let lastValveStatus = {
+  status: "st_actOFF",
+  reasoningTime: null,
+  fullResponseTime: null,
+};
+
 let valveStatus = "OFF";
+let lastEndToEnd = null;
 
 // =============================
 // 🚰 POST sensor (raw ultrasonic wash)
 // =============================
 router.post("/sensorWash", async (req, res) => {
-  const { jarak1, jarak2 } = req.body; // ✅ ambil dari body
+  const { jarak1, jarak2 } = req.body;
   const start = Date.now();
 
   if (jarak1 === undefined || jarak2 === undefined) {
     return res.status(400).json({ error: "Missing jarak values" });
   }
 
-  // 🔹 SPARQL hanya simpan nilai sensor, tanpa reasoning
   const updateQuery = `
     PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -45,19 +59,38 @@ router.post("/sensorWash", async (req, res) => {
   `;
 
   try {
+    // ⬅️ Update Fuseki
     await axios.post(
       FUSEKI_UPDATE_WASH,
       `update=${encodeURIComponent(updateQuery)}`,
-      { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+      {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        timeout: 6000,
+      }
     );
 
-    // simpan data terakhir
-    lastWashData = { jarak1, jarak2, timestamp: Date.now() };
-
     const responseTime = Date.now() - start;
+
+    // simpan data terakhir
+    lastWashData = {
+      ...lastWashData,
+      jarak1: Number(jarak1),
+      jarak2: Number(jarak2),
+      timestamp: Date.now(),
+      fullResponseTime: responseTime, // isi agar dashboard tidak null
+    };
+
+    // 🚀 Jalankan reasoning otomatis
+    try {
+      await axios.get("http://192.168.43.238:5000/api/reasoning/run");
+      console.log("✅ Reasoning otomatis dijalankan setelah sensor masuk");
+    } catch (err) {
+      console.error("❌ Gagal jalankan reasoning otomatis:", err.message);
+    }
+
     res.json({
-      message: "Wash sensor data stored",
-      responseTime: responseTime + "ms",
+      message: "Wash sensor data stored + reasoning triggered",
+      responseTime,
       data: lastWashData,
     });
   } catch (err) {
@@ -70,7 +103,7 @@ router.post("/sensorWash", async (req, res) => {
 // 🚰 GET raw sensor data dari Fuseki
 // =============================
 router.get("/rawWash", async (req, res) => {
-  const start = Date.now(); // hitung response time
+  const start = Date.now();
   const selectQuery = `
     PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
     SELECT ?dist1 ?dist2 WHERE {
@@ -83,7 +116,7 @@ router.get("/rawWash", async (req, res) => {
   try {
     const result = await axios.get(
       `${FUSEKI_QUERY_WASH}?query=${encodeURIComponent(selectQuery)}`,
-      { headers: { Accept: "application/sparql-results+json" } }
+      { headers: { Accept: "application/sparql-results+json" }, timeout: 6000 }
     );
 
     const b = result.data.results.bindings[0] || {};
@@ -92,7 +125,7 @@ router.get("/rawWash", async (req, res) => {
     res.json({
       jarak1: parseFloat(b.dist1?.value || 0),
       jarak2: parseFloat(b.dist2?.value || 0),
-      responseTime: responseTime,
+      responseTime,
       timestamp: Date.now(),
     });
   } catch (err) {
@@ -111,8 +144,8 @@ router.get("/wash/realtime", (req, res) => {
 // =============================
 // 🚰 GET status valve
 // =============================
-// ✅ GET Valve Status (untuk frontend & NodeMCU)
 router.get("/wash/valve-status", async (req, res) => {
+  const start = Date.now();
   try {
     const selectQuery = `
       PREFIX tb: <http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#>
@@ -123,11 +156,23 @@ router.get("/wash/valve-status", async (req, res) => {
 
     const result = await axios.get(
       `${FUSEKI_QUERY_WASH}?query=${encodeURIComponent(selectQuery)}`,
-      { headers: { Accept: "application/sparql-results+json" } }
+      { headers: { Accept: "application/sparql-results+json" }, timeout: 6000 }
     );
 
     const b = result.data.results.bindings[0] || {};
-    res.json({ status: b.status?.value?.split("#")[1] || "st_actOFF" });
+    const valveState = b.status?.value?.split("#")[1] || "st_actOFF";
+    const responseTime = Date.now() - start;
+
+    // update cache
+    lastValveStatus.status = valveState;
+
+    res.json({
+      status: valveState,
+      responseTime,
+      reasoningTime: lastWashData.reasoningTime ?? null,
+      fullResponseTime: lastWashData.fullResponseTime ?? null,
+      endToEndResponseTime: lastWashData.endToEndResponseTime ?? null,
+    });
   } catch (err) {
     console.error("❌ /wash/valve-status error:", err.message);
     res.status(500).json({ error: "Failed to fetch valve status" });
@@ -138,8 +183,52 @@ router.get("/wash/valve-status", async (req, res) => {
 // 🚰 POST update valve (dipanggil reasoning.js)
 // =============================
 router.post("/wash/update-valve", (req, res) => {
+  console.log("🔔 [DEBUG] Update valve diterima:", req.body);
   valveStatus = req.body.status || "OFF";
-  res.json({ message: "Valve status updated", status: valveStatus });
+
+  if (req.body.fullResponseTime !== undefined) {
+    lastWashData.fullResponseTime = req.body.fullResponseTime;
+  }
+  if (req.body.reasoningTime !== undefined) {
+    lastWashData.reasoningTime = req.body.reasoningTime;
+  }
+
+  lastValveStatus = {
+    status: valveStatus,
+    fullResponseTime: lastWashData.fullResponseTime,
+    reasoningTime: lastWashData.reasoningTime,
+  };
+
+  res.json({
+    message: "Valve status updated",
+    status: valveStatus,
+    fullResponseTime: lastWashData.fullResponseTime || null,
+    reasoningTime: lastWashData.reasoningTime || null,
+    timestamp: Date.now(),
+  });
+});
+
+// =============================
+// 🚰 POST End-to-End Response Time (dari NodeMCU)
+// =============================
+router.post("/wash/endtoend-log", (req, res) => {
+  const { endToEndResponseTime } = req.body;
+
+  if (endToEndResponseTime !== undefined) {
+    lastWashData.endToEndResponseTime = endToEndResponseTime;
+    lastEndToEnd = { endToEndResponseTime, timestamp: Date.now() };
+  }
+
+  res.json({
+    message: "End-to-End response time updated",
+    endToEndResponseTime: lastWashData.endToEndResponseTime,
+  });
+});
+
+router.get("/wash/endtoend-log", (req, res) => {
+  res.json(
+    lastEndToEnd || { endToEndResponseTime: null, timestamp: Date.now() }
+  );
 });
 
 module.exports = router;

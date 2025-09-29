@@ -10,8 +10,6 @@ const DATASET = {
   inout: "areaInout-2",
 };
 
-// const DATASET = "galva";
-
 const NS = "http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#";
 
 // 🔹 Helper untuk query Fuseki
@@ -28,15 +26,16 @@ async function queryFuseki(dataset, sparql) {
 // 🔹 Helper untuk update Fuseki
 async function updateFuseki(dataset, sparql) {
   const url = `${FUSEKI_BASE}/${dataset}/update`;
-  await axios.post(
-    `http://192.168.43.238:3030/${dataset}/update`,
-    `update=${encodeURIComponent(sparql)}`,
-    { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
-  );
+  await axios.post(url, `update=${encodeURIComponent(sparql)}`, {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  });
 }
 
 // 🔹 Fungsi reasoning
 async function runReasoning() {
+  const start = Date.now();
+  const reasoningStart = Date.now();
+
   // 1. Ambil data dari Fuseki
   const qCook = `
     PREFIX tb: <${NS}>
@@ -115,6 +114,8 @@ async function runReasoning() {
   // Rule Valve
   valve = washing === "st_washYES" ? "st_actON" : "st_actOFF";
 
+  const reasoningTime = Date.now() - reasoningStart;
+
   // 3. Update Fuseki
   const updates = [
     { dataset: DATASET.cook, action: "act_AC_Buzzer", status: buzzer },
@@ -135,15 +136,31 @@ async function runReasoning() {
     await updateFuseki(u.dataset, sparql);
   }
 
+  // 4. Hitung total response time reasoning
+  const fullResponseTime = Date.now() - start;
+
+  // 5. Sinkronkan valve + response time ke backend
   try {
     await axios.post("http://192.168.43.238:5000/api/wash/update-valve", {
-      status: valve === "st_actON" ? "ON" : "OFF",
+      status: valve, // ⬅️ sekarang konsisten: "st_actON"/"st_actOFF"
+      reasoningTime,
+      fullResponseTime,
     });
   } catch (err) {
     console.error("Gagal sinkronkan valve ke backend:", err.message);
   }
 
-  return { ...data, buzzer, exhaust, cooking, washing, lamp, valve };
+  return {
+    ...data,
+    buzzer,
+    exhaust,
+    cooking,
+    washing,
+    lamp,
+    valve,
+    reasoningTime,
+    fullResponseTime,
+  };
 }
 
 // ✅ API: jalankan reasoning sekarang
