@@ -9,10 +9,9 @@ const DATASET = {
   wash: "areaWash-2",
   inout: "areaInout-2",
 };
-
 const NS = "http://www.semanticweb.org/msi/ontologies/2025/5/thesis-1#";
 
-// 🔹 Helper untuk query Fuseki
+// 🔹 Helper functions
 async function queryFuseki(dataset, sparql) {
   const url = `${FUSEKI_BASE}/${dataset}/query?query=${encodeURIComponent(
     sparql
@@ -23,7 +22,6 @@ async function queryFuseki(dataset, sparql) {
   return res.data.results.bindings;
 }
 
-// 🔹 Helper untuk update Fuseki
 async function updateFuseki(dataset, sparql) {
   const url = `${FUSEKI_BASE}/${dataset}/update`;
   await axios.post(url, `update=${encodeURIComponent(sparql)}`, {
@@ -31,26 +29,29 @@ async function updateFuseki(dataset, sparql) {
   });
 }
 
-// 🔹 Helper normalisasi data sensor
 function normalize(val, def, parse = (v) => v) {
   return val !== undefined ? parse(val) : def;
 }
 
+// ======================================================
 // 🔹 Reasoning Cook
+// ======================================================
 function reasonCook(data) {
   let buzzer = "st_actOFF";
   let exhaust = "st_actOFF";
   let cooking = "st_cookNO";
 
-  // Rule Buzzer
+  // Rule: deteksi bahaya gas
   if (data.gas > 700) buzzer = "st_actON";
+
+  // Rule: jika tidak ada api dan tidak ada orang dekat → alarm
   if (data.flame === 0 && data.dist > 10) buzzer = "st_actON";
 
-  // Rule Cooking
+  // Rule: sedang memasak
   if (data.flame === 0 && data.dist <= 10) cooking = "st_cookYES";
   if (data.flame === 1) cooking = "st_cookNO";
 
-  // Rule Exhaust
+  // Rule: Exhaust fan aktif jika ada api atau suhu tinggi
   if (data.flame === 0) exhaust = "st_actON";
   else if (data.flame === 1 && data.temp > 35) exhaust = "st_actON";
   else exhaust = "st_actOFF";
@@ -58,20 +59,22 @@ function reasonCook(data) {
   return { buzzer, exhaust, cooking };
 }
 
+// ======================================================
 // 🔹 Reasoning Wash
+// ======================================================
 function reasonWash(data) {
   let washing = "st_washNO";
   let valve = "st_actOFF";
 
   if (data.obj < 20 && data.pers < 20) washing = "st_washYES";
-  else washing = "st_washNO";
-
   valve = washing === "st_washYES" ? "st_actON" : "st_actOFF";
 
   return { washing, valve };
 }
 
+// ======================================================
 // 🔹 Reasoning Inout
+// ======================================================
 function reasonInout(data, cooking, washing) {
   let lamp = "st_actOFF";
 
@@ -83,19 +86,21 @@ function reasonInout(data, cooking, washing) {
   return { lamp };
 }
 
-// 🔹 Fungsi reasoning utama
+// ======================================================
+// 🔹 Main Reasoning Flow
+// ======================================================
 async function runReasoning(requestStart = null) {
   const start = Date.now();
   const reasoningStart = Date.now();
 
-  // 1. Ambil data dari Fuseki
+  // 1️⃣ Ambil data sensor dari semua area
   const qCook = `
     PREFIX tb: <${NS}>
     SELECT ?flame ?gas ?temp ?dist WHERE {
-      OPTIONAL { tb:sensor_flame tb:ACdp_hasFIREvalue ?flame }
-      OPTIONAL { tb:sensor_gas tb:ACdp_hasPPMvalue ?gas }
-      OPTIONAL { tb:sensor_temp tb:ACdp_hasTEMPvalue ?temp }
-      OPTIONAL { tb:sensor_dist tb:ACdp_hasDISTvalue ?dist }
+      OPTIONAL { tb:read_AC_flame tb:ACdp_hasFIREvalue ?flame }
+      OPTIONAL { tb:read_AC_Ppm tb:ACdp_hasPPMvalue ?gas }
+      OPTIONAL { tb:read_AC_Temp tb:ACdp_hasTEMPvalue ?temp }
+      OPTIONAL { tb:read_AC_Dist tb:ACdp_hasDISTvalue ?dist }
     } LIMIT 1
   `;
   const qWash = `
@@ -131,14 +136,14 @@ async function runReasoning(requestStart = null) {
     count: normalize(inout[0]?.count?.value, 0, (v) => parseInt(v)),
   };
 
-  // 2. Evaluasi rules modular
+  // 2️⃣ Evaluasi rule masing-masing area
   const { buzzer, exhaust, cooking } = reasonCook(data);
   const { washing, valve } = reasonWash(data);
   const { lamp } = reasonInout(data, cooking, washing);
 
   const reasoningTime = Date.now() - reasoningStart;
 
-  // 3. Update Fuseki (dengan error handling per update)
+  // 3️⃣ Update status ke Fuseki
   const updates = [
     {
       dataset: DATASET.cook,
@@ -192,22 +197,29 @@ async function runReasoning(requestStart = null) {
     }
   }
 
-  // 4. Hitung response time
   const fullResponseTime = Date.now() - start;
   const endToEndTime = requestStart
     ? Date.now() - requestStart
     : fullResponseTime;
 
-  // 5. Sinkronkan ke backend
+  // 4️⃣ Kirim hasil reasoning ke backend tiap area
   try {
-    // Valve → areaWash backend
+    await axios.post("http://192.168.43.238:5000/api/cook/update-buzzer", {
+      status: buzzer,
+      reasoningTime,
+      fullResponseTime,
+    });
+    await axios.post("http://192.168.43.238:5000/api/cook/update-exhaust", {
+      status: exhaust,
+      reasoningTime,
+      fullResponseTime,
+      endToEndTime,
+    });
     await axios.post("http://192.168.43.238:5000/api/wash/update-valve", {
       status: valve,
       reasoningTime,
       fullResponseTime,
     });
-
-    // Lamp → areaInout backend
     await axios.post("http://192.168.43.238:5000/api/inout/update-lamp", {
       status: lamp,
       reasoningTime,
@@ -218,7 +230,6 @@ async function runReasoning(requestStart = null) {
     console.error("❌ Gagal sinkronkan ke backend:", err.message);
   }
 
-  // 6. Logging untuk debugging
   console.table({
     flame: data.flame,
     gas: data.gas,
@@ -244,30 +255,28 @@ async function runReasoning(requestStart = null) {
     exhaust,
     cooking,
     washing,
-    lamp,
     valve,
+    lamp,
     reasoningTime,
     fullResponseTime,
     endToEndTime,
   };
 }
 
-// ✅ API: jalankan reasoning sekarang
+// ======================================================
+// ✅ API
+// ======================================================
 router.get("/reasoning/run", async (req, res) => {
   const requestStart = Date.now();
   try {
     const result = await runReasoning(requestStart);
-    res.json({
-      message: "Reasoning executed",
-      result,
-    });
+    res.json({ message: "Reasoning executed", result });
   } catch (err) {
     console.error("❌ reasoning error:", err.message);
     res.status(500).json({ error: "Reasoning failed" });
   }
 });
 
-// ✅ API: ambil status terakhir
 router.get("/reasoning/status", async (req, res) => {
   try {
     const result = await runReasoning();
