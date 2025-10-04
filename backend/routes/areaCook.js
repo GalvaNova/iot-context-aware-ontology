@@ -164,17 +164,15 @@ router.get("/cook/actuator", (req, res) => {
 router.post("/cook/update-buzzer", (req, res) => {
   const { status, reasoningTime, fullResponseTime, endToEndTime } = req.body;
 
-  lastCookData.buzzer = status || "st_actOFF";
-  lastCookData.reasoningTime = reasoningTime || 0;
-  lastCookData.fullResponseTime = fullResponseTime || 0;
+  const rTime = Number(reasoningTime) || 0;
+  const fTime = Number(fullResponseTime) || 0;
 
-  // ✅ hitung responseTime = fullResponse - reasoning
-  lastCookData.responseTime = Math.max(
-    (fullResponseTime || 0) - (reasoningTime || 0),
-    0
-  );
-
-  if (endToEndTime !== undefined) lastCookData.endToEndTime = endToEndTime;
+  lastCookData.buzzer = status || lastCookData.buzzer;
+  lastCookData.reasoningTime = rTime > 0 ? rTime : lastCookData.reasoningTime;
+  lastCookData.fullResponseTime =
+    fTime > 0 ? fTime : lastCookData.fullResponseTime;
+  lastCookData.responseTime = Math.max(fTime - rTime, 0);
+  if (endToEndTime) lastCookData.endToEndTime = Number(endToEndTime);
   lastCookData.timestamp = Date.now();
 
   console.log("🔊 Buzzer updated:", lastCookData.buzzer);
@@ -187,17 +185,15 @@ router.post("/cook/update-buzzer", (req, res) => {
 router.post("/cook/update-exhaust", (req, res) => {
   const { status, reasoningTime, fullResponseTime, endToEndTime } = req.body;
 
-  lastCookData.exhaust = status || "st_actOFF";
-  lastCookData.reasoningTime = reasoningTime || 0;
-  lastCookData.fullResponseTime = fullResponseTime || 0;
+  const rTime = Number(reasoningTime) || 0;
+  const fTime = Number(fullResponseTime) || 0;
 
-  // ✅ hitung responseTime juga di sini
-  lastCookData.responseTime = Math.max(
-    (fullResponseTime || 0) - (reasoningTime || 0),
-    0
-  );
-
-  if (endToEndTime !== undefined) lastCookData.endToEndTime = endToEndTime;
+  lastCookData.exhaust = status || lastCookData.exhaust;
+  lastCookData.reasoningTime = rTime > 0 ? rTime : lastCookData.reasoningTime;
+  lastCookData.fullResponseTime =
+    fTime > 0 ? fTime : lastCookData.fullResponseTime;
+  lastCookData.responseTime = Math.max(fTime - rTime, 0);
+  if (endToEndTime) lastCookData.endToEndTime = Number(endToEndTime);
   lastCookData.timestamp = Date.now();
 
   console.log("🌀 Exhaust updated:", lastCookData.exhaust);
@@ -209,8 +205,8 @@ router.post("/cook/update-exhaust", (req, res) => {
 // ==================================================
 router.post("/cook/endtoend", (req, res) => {
   const { endToEndTime } = req.body;
-  if (endToEndTime !== undefined) {
-    lastCookData.endToEndTime = endToEndTime;
+  if (endToEndTime) {
+    lastCookData.endToEndTime = Number(endToEndTime);
     lastCookData.timestamp = Date.now();
   }
   res.json({ message: "End-to-End stored", ...lastCookData });

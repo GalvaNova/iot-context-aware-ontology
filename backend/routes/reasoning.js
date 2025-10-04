@@ -4,6 +4,7 @@ const axios = require("axios");
 const router = express.Router();
 
 const FUSEKI_BASE = "http://192.168.43.238:3030";
+const BACKEND_BASE = "http://192.168.43.238:5000";
 const DATASET = {
   cook: "areaCook-2",
   wash: "areaWash-2",
@@ -204,23 +205,24 @@ async function runReasoning(requestStart = null) {
 
   // 4️⃣ Kirim hasil reasoning ke backend tiap area
   try {
-    await axios.post("http://192.168.43.238:5000/api/cook/update-buzzer", {
+    await axios.post(`${BACKEND_BASE}/api/cook/update-buzzer`, {
       status: buzzer,
       reasoningTime,
       fullResponseTime,
+      endToEndTime,
     });
-    await axios.post("http://192.168.43.238:5000/api/cook/update-exhaust", {
+    await axios.post(`${BACKEND_BASE}/api/cook/update-exhaust`, {
       status: exhaust,
       reasoningTime,
       fullResponseTime,
       endToEndTime,
     });
-    await axios.post("http://192.168.43.238:5000/api/wash/update-valve", {
+    await axios.post(`${BACKEND_BASE}/api/wash/update-valve`, {
       status: valve,
       reasoningTime,
       fullResponseTime,
     });
-    await axios.post("http://192.168.43.238:5000/api/inout/update-lamp", {
+    await axios.post(`${BACKEND_BASE}/api/inout/update-lamp`, {
       status: lamp,
       reasoningTime,
       fullResponseTime,
