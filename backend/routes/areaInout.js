@@ -14,11 +14,11 @@ let lastInoutData = {
   reasoningTime: 0,
   fullResponseTime: 0,
   endToEndTime: 0,
-  timestamp: null,
+  timestamp: Date.now(),
 };
 
 // ==================================================
-// 🟢 POST /dataInout → simpan hasil counting orang
+// 🟢 POST /dataInout → simpan hasil counting orang + panggil reasoning
 // ==================================================
 router.post("/dataInout", async (req, res) => {
   const { personCount } = req.body;
@@ -52,18 +52,40 @@ router.post("/dataInout", async (req, res) => {
 
     const responseTime = Date.now() - start;
 
-    // Simpan count ke lastInoutData
+    // Simpan ke lastInoutData
     lastInoutData.personCount = personCount;
     lastInoutData.timestamp = Date.now();
 
+    // 🔹 Panggil Reasoning Service
+    try {
+      const reasoningRes = await axios.post(
+        "http://localhost:5000/api/reasoning/inout",
+        {
+          personCount,
+          timestamp: lastInoutData.timestamp,
+        }
+      );
+
+      // Update hasil reasoning ke lastInoutData
+      lastInoutData.status = reasoningRes.data.status;
+      lastInoutData.reasoningTime = reasoningRes.data.reasoningTime || 0;
+      lastInoutData.fullResponseTime = reasoningRes.data.fullResponseTime || 0;
+      lastInoutData.endToEndTime = reasoningRes.data.endToEndTime || 0;
+    } catch (reasonErr) {
+      console.error("❌ Gagal panggil reasoning:", reasonErr.message);
+    }
+
     res.json({
-      message: "Person count stored",
+      message: "Person count stored + reasoning updated",
       personCount,
       responseTime,
+      ...lastInoutData,
     });
   } catch (err) {
     console.error("❌ areaInout error:", err.message);
-    res.status(500).json({ error: "Failed to update Fuseki" });
+    res
+      .status(500)
+      .json({ error: "Failed to update Fuseki", detail: err.message });
   }
 });
 
@@ -96,12 +118,14 @@ router.get("/person-count", async (req, res) => {
 
     res.json({
       personCount: count,
-      responseTime,
+      responseTime, // konsisten: responseTime, bukan backendTime
       timestamp: lastInoutData.timestamp,
     });
   } catch (err) {
     console.error("❌ /person-count error:", err.message);
-    res.status(500).json({ error: "Failed to fetch person count" });
+    res
+      .status(500)
+      .json({ error: "Failed to fetch person count", detail: err.message });
   }
 });
 
@@ -138,7 +162,7 @@ router.post("/inout/endtoend", (req, res) => {
     lastInoutData.endToEndTime = endToEndTime;
     lastInoutData.timestamp = Date.now();
   }
-  res.json({ message: "End-to-End time stored", endToEndTime });
+  res.json({ message: "End-to-End time stored", ...lastInoutData });
 });
 
 module.exports = router;

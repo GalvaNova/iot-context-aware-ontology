@@ -31,8 +31,60 @@ async function updateFuseki(dataset, sparql) {
   });
 }
 
-// 🔹 Fungsi reasoning
-async function runReasoning() {
+// 🔹 Helper normalisasi data sensor
+function normalize(val, def, parse = (v) => v) {
+  return val !== undefined ? parse(val) : def;
+}
+
+// 🔹 Reasoning Cook
+function reasonCook(data) {
+  let buzzer = "st_actOFF";
+  let exhaust = "st_actOFF";
+  let cooking = "st_cookNO";
+
+  // Rule Buzzer
+  if (data.gas > 700) buzzer = "st_actON";
+  if (data.flame === 0 && data.dist > 10) buzzer = "st_actON";
+
+  // Rule Cooking
+  if (data.flame === 0 && data.dist <= 10) cooking = "st_cookYES";
+  if (data.flame === 1) cooking = "st_cookNO";
+
+  // Rule Exhaust
+  if (data.flame === 0) exhaust = "st_actON";
+  else if (data.flame === 1 && data.temp > 35) exhaust = "st_actON";
+  else exhaust = "st_actOFF";
+
+  return { buzzer, exhaust, cooking };
+}
+
+// 🔹 Reasoning Wash
+function reasonWash(data) {
+  let washing = "st_washNO";
+  let valve = "st_actOFF";
+
+  if (data.obj < 20 && data.pers < 20) washing = "st_washYES";
+  else washing = "st_washNO";
+
+  valve = washing === "st_washYES" ? "st_actON" : "st_actOFF";
+
+  return { washing, valve };
+}
+
+// 🔹 Reasoning Inout
+function reasonInout(data, cooking, washing) {
+  let lamp = "st_actOFF";
+
+  if (data.count > 0) lamp = "st_actON";
+  if (data.count === 0 && cooking === "st_cookNO" && washing === "st_washNO") {
+    lamp = "st_actOFF";
+  }
+
+  return { lamp };
+}
+
+// 🔹 Fungsi reasoning utama
+async function runReasoning(requestStart = null) {
   const start = Date.now();
   const reasoningStart = Date.now();
 
@@ -69,86 +121,122 @@ async function runReasoning() {
   ]);
 
   const data = {
-    flame: parseInt(cook[0]?.flame?.value ?? 1),
-    gas: parseInt(cook[0]?.gas?.value ?? 0),
-    temp: parseFloat(cook[0]?.temp?.value ?? 25),
-    dist: parseFloat(cook[0]?.dist?.value ?? 100),
-    obj: parseFloat(wash[0]?.obj?.value ?? 100),
-    pers: parseFloat(wash[0]?.pers?.value ?? 100),
+    flame: normalize(cook[0]?.flame?.value, 1, (v) => parseInt(v)),
+    gas: normalize(cook[0]?.gas?.value, 0, (v) => parseInt(v)),
+    temp: normalize(cook[0]?.temp?.value, 25, (v) => parseFloat(v)),
+    dist: normalize(cook[0]?.dist?.value, 100, (v) => parseFloat(v)),
+    obj: normalize(wash[0]?.obj?.value, 100, (v) => parseFloat(v)),
+    pers: normalize(wash[0]?.pers?.value, 100, (v) => parseFloat(v)),
     washStatus: wash[0]?.washStatus?.value?.split("#")[1] ?? "st_washNO",
-    count: parseInt(inout[0]?.count?.value ?? 0),
+    count: normalize(inout[0]?.count?.value, 0, (v) => parseInt(v)),
   };
 
-  // 2. Evaluasi rules
-  let buzzer = "st_actOFF";
-  let exhaust = "st_actOFF";
-  let cooking = "st_cookNO";
-  let washing = "st_washNO";
-  let lamp = "st_actOFF";
-  let valve = "st_actOFF";
-
-  // Rule Buzzer-1
-  if (data.gas > 700) buzzer = "st_actON";
-
-  // Rule Buzzer-2
-  if (data.flame === 0 && data.dist > 10) buzzer = "st_actON";
-
-  // Rule Cooking
-  if (data.flame === 0 && data.dist <= 10) cooking = "st_cookYES";
-  if (data.flame === 1) cooking = "st_cookNO";
-
-  // Rule Exhaust
-  if (data.flame === 0) exhaust = "st_actON";
-  else if (data.flame === 1 && data.temp > 35) exhaust = "st_actON";
-  else exhaust = "st_actOFF";
-
-  // Rule Wash
-  if (data.obj < 20 && data.pers < 20) washing = "st_washYES";
-  else washing = "st_washNO";
-
-  // Rule Lamp
-  if (data.count > 0) lamp = "st_actON";
-  if (data.count === 0 && cooking === "st_cookNO" && washing === "st_washNO")
-    lamp = "st_actOFF";
-
-  // Rule Valve
-  valve = washing === "st_washYES" ? "st_actON" : "st_actOFF";
+  // 2. Evaluasi rules modular
+  const { buzzer, exhaust, cooking } = reasonCook(data);
+  const { washing, valve } = reasonWash(data);
+  const { lamp } = reasonInout(data, cooking, washing);
 
   const reasoningTime = Date.now() - reasoningStart;
 
-  // 3. Update Fuseki
+  // 3. Update Fuseki (dengan error handling per update)
   const updates = [
-    { dataset: DATASET.cook, action: "act_AC_Buzzer", status: buzzer },
-    { dataset: DATASET.cook, action: "act_AC_Exhaust", status: exhaust },
-    { dataset: DATASET.cook, action: "fnc_cookAct", status: cooking },
-    { dataset: DATASET.wash, action: "fnc_washAct", status: washing },
-    { dataset: DATASET.wash, action: "act_AS_Valve", status: valve },
-    { dataset: DATASET.inout, action: "act_AE_Lamp", status: lamp },
+    {
+      dataset: DATASET.cook,
+      action: "act_AC_Buzzer",
+      status: buzzer,
+      prop: "M_hasActionStatus",
+    },
+    {
+      dataset: DATASET.cook,
+      action: "act_AC_Exhaust",
+      status: exhaust,
+      prop: "M_hasActionStatus",
+    },
+    {
+      dataset: DATASET.cook,
+      action: "fnc_cookAct",
+      status: cooking,
+      prop: "M_hasActivityStatus",
+    },
+    {
+      dataset: DATASET.wash,
+      action: "fnc_washAct",
+      status: washing,
+      prop: "M_hasActivityStatus",
+    },
+    {
+      dataset: DATASET.wash,
+      action: "act_AS_Valve",
+      status: valve,
+      prop: "M_hasActionStatus",
+    },
+    {
+      dataset: DATASET.inout,
+      action: "act_AE_Lamp",
+      status: lamp,
+      prop: "M_hasActionStatus",
+    },
   ];
 
   for (const u of updates) {
-    const sparql = `
-      PREFIX tb: <${NS}>
-      DELETE { tb:${u.action} tb:M_hasActionStatus ?old }
-      INSERT { tb:${u.action} tb:M_hasActionStatus tb:${u.status} }
-      WHERE { OPTIONAL { tb:${u.action} tb:M_hasActionStatus ?old } }
-    `;
-    await updateFuseki(u.dataset, sparql);
+    try {
+      const sparql = `
+        PREFIX tb: <${NS}>
+        DELETE { tb:${u.action} tb:${u.prop} ?old }
+        INSERT { tb:${u.action} tb:${u.prop} tb:${u.status} }
+        WHERE { OPTIONAL { tb:${u.action} tb:${u.prop} ?old } }
+      `;
+      await updateFuseki(u.dataset, sparql);
+    } catch (err) {
+      console.error(`❌ Gagal update ${u.action}:`, err.message);
+    }
   }
 
-  // 4. Hitung total response time reasoning
+  // 4. Hitung response time
   const fullResponseTime = Date.now() - start;
+  const endToEndTime = requestStart
+    ? Date.now() - requestStart
+    : fullResponseTime;
 
-  // 5. Sinkronkan valve + response time ke backend
+  // 5. Sinkronkan ke backend
   try {
+    // Valve → areaWash backend
     await axios.post("http://192.168.43.238:5000/api/wash/update-valve", {
-      status: valve, // ⬅️ sekarang konsisten: "st_actON"/"st_actOFF"
+      status: valve,
       reasoningTime,
       fullResponseTime,
     });
+
+    // Lamp → areaInout backend
+    await axios.post("http://192.168.43.238:5000/api/inout/update-lamp", {
+      status: lamp,
+      reasoningTime,
+      fullResponseTime,
+      endToEndTime,
+    });
   } catch (err) {
-    console.error("Gagal sinkronkan valve ke backend:", err.message);
+    console.error("❌ Gagal sinkronkan ke backend:", err.message);
   }
+
+  // 6. Logging untuk debugging
+  console.table({
+    flame: data.flame,
+    gas: data.gas,
+    temp: data.temp,
+    dist: data.dist,
+    obj: data.obj,
+    pers: data.pers,
+    count: data.count,
+    buzzer,
+    exhaust,
+    cooking,
+    washing,
+    valve,
+    lamp,
+    reasoningTime,
+    fullResponseTime,
+    endToEndTime,
+  });
 
   return {
     ...data,
@@ -160,14 +248,19 @@ async function runReasoning() {
     valve,
     reasoningTime,
     fullResponseTime,
+    endToEndTime,
   };
 }
 
 // ✅ API: jalankan reasoning sekarang
 router.get("/reasoning/run", async (req, res) => {
+  const requestStart = Date.now();
   try {
-    const result = await runReasoning();
-    res.json({ message: "Reasoning executed", result });
+    const result = await runReasoning(requestStart);
+    res.json({
+      message: "Reasoning executed",
+      result,
+    });
   } catch (err) {
     console.error("❌ reasoning error:", err.message);
     res.status(500).json({ error: "Reasoning failed" });
