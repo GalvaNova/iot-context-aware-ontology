@@ -49,6 +49,7 @@ router.post("/update-status", (req, res) => {
   const {
     buzzer,
     exhaust,
+    cooking,
     reasoningTime,
     fullResponseTime,
     endToEndTime,
@@ -58,6 +59,7 @@ router.post("/update-status", (req, res) => {
   lastStatusData = {
     buzzer: buzzer ?? lastStatusData.buzzer,
     exhaust: exhaust ?? lastStatusData.exhaust,
+    cooking: cooking ?? lastStatusData.cooking,
     reasoningTime: reasoningTime ?? 0,
     fullResponseTime: fullResponseTime ?? 0,
     endToEndTime: endToEndTime ?? 0,
